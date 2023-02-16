@@ -1,5 +1,5 @@
 # formulaire-securis-
-Dans cette exercice j’ai créé trois pages la premier est celle de l’inscription qui nous permet de récupérer le nom et le mot de passe des utilisateurs afin de les stocker dans ma base de donné que j’ai créé au préalable,
+Dans cet exercice j’ai créé trois pages la premier est celle de l’inscription qui nous permet de récupérer le nom et le mot de passe des utilisateurs afin de les stocker dans ma base de donné que j’ai créé au préalable,
 
  La deuxième c’est la page de la connexion, après l’inscription l’utilisateur est automatiquement renvoyer vers cette page qui permet la saisie du pseudonyme et du mot passe afin de se connecter,
 
