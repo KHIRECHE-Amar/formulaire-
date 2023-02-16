@@ -62,7 +62,10 @@ if (isset($_POST['valider'])){
   </nav>
 </header>
 <body>
-        <img src="photo.png" style="width: 100px; height: 100px;">
+                <div style="text-align: center;">
+         
+		<img src="photo.png" style="width: 100px; height: 100px;" >
+		</div>
             
     </body>
 
