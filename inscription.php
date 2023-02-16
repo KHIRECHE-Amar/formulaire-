@@ -4,15 +4,14 @@ session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=minitchat;','root','root');
 
 if(isset($_POST['insc'])){
-    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
+    if(!empty($_POST['pseudo']) AND !empty($_POST['mdp']) AND (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,}$/', $_POST['mdp']))){
     
         $pseudonyme_saisi = htmlspecialchars($_POST['pseudo']);
 		$salt = "Amirouche12345474"; 
 		$mdp = $_POST['mdp'].$salt;
         $motdepasse_saisi = password_hash($mdp, PASSWORD_DEFAULT);
 		
-        
-
+		
         
 
         $inscription = $bdd->prepare('INSERT INTO utilisateursss(pseudonyme, motdepasse)VALUES(?, ?)');
@@ -44,10 +43,11 @@ if(isset($_POST['insc'])){
   </nav>
 </header>
 <body>
-                <div style="text-align: center;">
+        <div style="text-align: center;">
          
 		<img src="photo.png" style="width: 100px; height: 100px;" >
 		</div>
+		
             
     </body>
 	
@@ -61,6 +61,8 @@ if(isset($_POST['insc'])){
 			<input type="password" name="mdp" placeholder="motdepasse">
 			<br><br>
 			<input type="submit" name="insc" value="inscription" class="btn btn-success">
+
+			<br> le mot de passe doit contenir au moins 8 caractere une maj et miniscule et un caractere sepcial<br>
 		</div>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 		
