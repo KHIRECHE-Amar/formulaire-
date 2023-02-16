@@ -7,6 +7,9 @@ if (isset($_POST['valider'])){
     if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
         $pseudo_default = "admin";
         $mdp_default = "admin123";
+        $salt = "Amirouche12345474"; 
+		$mdp = $_POST['mdp'].$salt;
+        $motdepasse_saisi = password_hash($mdp, PASSWORD_DEFAULT);
         
 
 
@@ -24,9 +27,9 @@ if (isset($_POST['valider'])){
         }else 
         {
             while($user = $recupUsers->fetch()){
-                if($pseudo_saisi == $user['pseudonyme'] AND $mdp_saisi == password_verify($_POST['mdp'], $user['motdepasse']))
+                if($pseudo_saisi == $user['pseudonyme'] AND $mdp_saisi == password_verify($_POST['mdp'].$salt, $user['motdepasse']))
                 {
-                    $_SESSION['mdp'] = $mdp_saisi;
+                    $_SESSION['mdp'] = $motdepasse_saisi;
                     $_SESSION['peudo'] = $pseudo_saisi;
                     header('Location: accueil.php');
                 }
