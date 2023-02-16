@@ -44,8 +44,10 @@ if(isset($_POST['insc'])){
   </nav>
 </header>
 <body>
-        <img src="photo.png" style="width: 100px; height: 100px;">
-		<div aligne="center">
+                <div style="text-align: center;">
+         
+		<img src="photo.png" style="width: 100px; height: 100px;" >
+		</div>
             
     </body>
 	
