@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=minitchat;','root','root');
 
@@ -6,7 +7,9 @@ if(isset($_POST['insc'])){
     if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
     
         $pseudonyme_saisi = htmlspecialchars($_POST['pseudo']);
-        $motdepasse_saisi = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+		$salt = "Amirouche12345474"; 
+		$mdp = $_POST['mdp'].$salt;
+        $motdepasse_saisi = password_hash($mdp, PASSWORD_DEFAULT);
 		
         
 
@@ -40,6 +43,12 @@ if(isset($_POST['insc'])){
   </ul>
   </nav>
 </header>
+<body>
+        <img src="photo.png" style="width: 100px; height: 100px;">
+		<div aligne="center">
+            
+    </body>
+	
 	<form method="POST" action="">
 		<div align="center">
 			<br><br>
